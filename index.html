@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Travel Journal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to bottom right, #ff7f50, #6a5acd); /* Colorful gradient background */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(44, 62, 80, 0.8);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-bottom: 5px solid #3498db;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .travel-entry {
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bubble {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            font-size: 1.1em;
+            width: 100%;
+            max-width: 600px;
+            margin-right: 20px;
+        }
+
+        .bubble h2 {
+            color: #3498db;
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .bubble p {
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: rgba(44, 62, 80, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 0.9em;
+        }
+
+        .travel-entry img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #ffffff;
+        }
+
+        svg {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        .state {
+            cursor: pointer;
+            transition: fill 0.3s ease;
+        }
+
+        .state:hover {
+            fill: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A Travel Journal</h1>
+        <p>Journey through the world, one place at a time.</p>
+    </header>
+
+    <main>
+        <section class="travel-entry">
+            <div class="bubble">
+                <h2>Chicago, Illinois</h2>
+                <p>Chicago is a city steeped in rich history and renowned for its iconic architecture. From the towering Willis Tower to the historic Art Deco buildings along the Chicago River, the city offers a unique skyline. Known for its deep ties to jazz music, Chicago's architecture reflects the city’s growth and innovation.</p>
+                <img src="../roadtrips/cloud-gate-chicago-sunset.jpg"/>
+            </div>
+        </section>
+
+        <section class="travel-entry">
+            <div class="bubble">
+                <h2>Florida</h2>
+                <p>Florida is famous for its beautiful beaches, warm weather, and vibrant coastal life. From the stunning white sands of Miami Beach to the serene shores of the Florida Keys, the state offers a tropical paradise for beach lovers. Visitors can enjoy everything from water sports to relaxing in the sunshine on pristine beaches.</p>
+                <img src="../roadtrips/florida.png"/>
+            </div>
+        </section>
+
+        <section class="travel-entry">
+            <div class="bubble">
+                <h2>Interactive U.S. Map</h2>
+                <p>Click on any state below to learn more about my travels there!</p>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+                    <g>
+                        <path id="IL" class="state" d="M200,100 L250,150 L250,200 L200,250 L150,200 L150,150 L200,100" fill="#ddd" />
+                        <path id="FL" class="state" d="M400,300 L450,350 L450,400 L400,450 L350,400 L350,350 L400,300" fill="#ddd" />
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; Mathew Druin. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const states = document.querySelectorAll('.state');
+
+        states.forEach(state => {
+            state.addEventListener('click', function () {
+                const stateName = state.id; 
+                alert('You clicked on: ' + stateName); 
+        });
+    </script>
+</body>
+</html>
